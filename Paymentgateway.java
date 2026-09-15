@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class PaymentGateway {
-    private ArrayList<Payment> payments = new ArrayList<>();
+    private final ArrayList<Payment> payments = new ArrayList<>();
 
     public void add(Payment payment) {
         payments.add(payment);

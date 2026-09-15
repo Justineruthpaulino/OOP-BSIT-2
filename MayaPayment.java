@@ -1,5 +1,5 @@
 public class MayaPayment extends Payment implements Refundable {
-    private String email;
+    private final String email;
 
     public MayaPayment(int id, String payerName, double amount, String email) {
         super(id, payerName, amount);
@@ -22,7 +22,6 @@ public class MayaPayment extends Payment implements Refundable {
 
     @Override
     public String refund() {
-        return "Maya refund of PHP " + String.format("%.2f", getAmount())
-                + " emailed to " + email + ".";
+        return "Maya refund of PHP " + String.format("%.2f", getAmount()) + " emailed to " + email + ".";
     }
 }

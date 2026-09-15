@@ -1,7 +1,7 @@
 public abstract class Payment {
     private final int id;
-    private String payerName;
-    private double amount;
+    private final String payerName;
+    private final double amount;
 
     public Payment(int id, String payerName, double amount) {
         this.id = id;
@@ -9,11 +9,26 @@ public abstract class Payment {
         this.amount = amount;
     }
 
-    public int getId() { return id; }
-    public String getPayerName() { return payerName; }
-    public double getAmount() { return amount; }
+    public Payment(double amount, int id, String payerName) {
+        this.amount = amount;
+        this.id = id;
+        this.payerName = payerName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getPayerName() {
+        return payerName;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
 
     public abstract void pay();
+
     public abstract String provider();
 
     public double serviceFee() {
@@ -25,8 +40,7 @@ public abstract class Payment {
     }
 
     public void printReceipt() {
-        System.out.printf("[%d] %s  %s   PHP  %.2f%n",
-                id, provider(), payerName, amount);
+        System.out.printf("[%d] %s  %s   PHP  %.2f%n", id, provider(), payerName, amount);
         pay();
     }
 

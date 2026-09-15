@@ -1,5 +1,5 @@
 public class GCashPayment extends Payment implements Refundable {
-    private String mobile;
+    private final String mobile;
 
     public GCashPayment(int id, String payerName, double amount, String mobile) {
         super(id, payerName, amount);
@@ -22,8 +22,7 @@ public class GCashPayment extends Payment implements Refundable {
 
     @Override
     public String refund() {
-        return "GCash refund of PHP " + String.format("%.2f", getAmount())
-                + " returned to " + mobile + ".";
+        return "GCash refund of PHP " + String.format("%.2f", getAmount()) + " returned to " + mobile + ".";
     }
 
     @Override
